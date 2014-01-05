@@ -1,0 +1,14 @@
+{   
+    "urls": {
+        "Homepage": "http://www.google.com/"
+    },
+    "graphite_options": {
+        "server": "graphite.server",
+        "port": "2003",
+        "base_ns": "performance.urlload"
+    },
+    "curl_options": {
+        "CURLOPT_ENCODING": "gzip",
+        "CURLOPT_FOLLOWLOCATION": "true"
+    }
+}
