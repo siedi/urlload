@@ -45,7 +45,12 @@ class URLLoad {
     private function __prepareResults($raw_data) {
         $result = array();
         foreach (self::$result_keys as $key) {
-            $result["$key"] = $raw_data["$key"];
+            // we want to have milliseconds, not seconds
+            if (strpos($key, '_time') !== false) {
+                $result["$key"] = $raw_data["$key"] * 1000;
+            } else {
+                $result["$key"] = $raw_data["$key"];
+            }
         }
         return $result;
     }
