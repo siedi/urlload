@@ -6,12 +6,14 @@
  * example: php run.php -c urlload2graphite
  */
 
-require('../lib/URLLoad.php');
-require('../lib/Graphite.php');
+$dir = dirname(__FILE__);
+
+require($dir . '/../lib/URLLoad.php');
+require($dir . '/../lib/Graphite.php');
 
 $options = getopt('c:');
 
-$config_file = isset($options['c']) ? '../etc/'.$options['c'] : '../etc/urlload2graphite.conf';
+$config_file = isset($options['c']) ? $dir . '/../etc/'.$options['c'] : $dir . '/../etc/urlload.conf';
 $config = json_decode(file_get_contents($config_file), true);
 
 if (!$config || json_last_error()) {
