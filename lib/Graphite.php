@@ -20,6 +20,7 @@ class Graphite {
 
     public function save($label, $ts, $data) {
         foreach($data as $key => $value) {
+            echo "$this->base_ns.$label.$key $value $ts\n";
             `echo "$this->base_ns.$label.$key $value $ts" | nc -q 3 $this->server $this->port`;
         }
     }

@@ -23,8 +23,10 @@ $grapher = new Graphite($config['graphite_options']);
 
 foreach($config['urls'] as $url_name => $url) {
     $date = time();
+    echo "Starting $url_name...\n";
     $stats = $loader->run($url);
     // TODO Add some exception handling
     $grapher->save($url_name, $date, $stats);
+    echo "Done.";
 }
 
